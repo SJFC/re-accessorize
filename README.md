@@ -1,7 +1,7 @@
 # Re-Accessorize — interactive style-tribe cards
 
 **A hypothetical campaign, created as postgraduate coursework.**
-MDes 004, Boosting the Brand · Birmingham City University · Sarah-Jane Crowson.
+MDes 004, Sunderland University · Sarah-Jane Crowson.
 
 Not affiliated with, commissioned by, or endorsed by Accessorize or Monsoon
 Accessorize Ltd. Accessorize is their trademark, referenced here for academic
@@ -10,7 +10,7 @@ offer; no workshop exists. The page makes no claims about the brand's actual
 practices, products or sustainability performance.
 
 **All imagery is AI-generated (Adobe Firefly).** The pieces shown do not exist and
-have not been repaired. The repair descriptions illustrate what the campaign would
+have not been upcycled. The upcycle descriptions illustrate what the campaign would
 document, and are not records of work done.
 
 ## What this is
