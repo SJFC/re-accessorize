@@ -1,3 +1,6 @@
+Replace the entire contents of your GitHub `index.html` with this:
+
+```html
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -94,13 +97,19 @@ h1{
 }
 .card:focus-visible{outline:4px solid var(--cyan);outline-offset:6px}
 .inner{
+  display:block;
   position:relative;
   width:100%;
   aspect-ratio:4/5;
   transition:transform .64s cubic-bezier(.2,.75,.25,1);
   transform-style:preserve-3d;
+  -webkit-transform-style:preserve-3d;
+  will-change:transform;
 }
-.card[aria-pressed="true"] .inner{transform:rotateY(180deg)}
+.card[aria-pressed="true"] .inner{
+  transform:rotateY(180deg);
+  -webkit-transform:rotateY(180deg);
+}
 .face{
   position:absolute;
   inset:0;
@@ -108,6 +117,7 @@ h1{
   border:2px solid var(--ink);
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
+  pointer-events:none;
 }
 .front{background:var(--paper)}
 .front img{display:block;width:100%;height:100%;object-fit:cover}
@@ -118,6 +128,7 @@ h1{
   padding:clamp(10px,1.15vw,16px);
   background:var(--paper);
   transform:rotateY(180deg);
+  -webkit-transform:rotateY(180deg);
 }
 .c03 .back{background:var(--navy);color:#eef1ff;border-color:var(--navy)}
 .c04 .back{background:#d7d4ca}
@@ -197,7 +208,10 @@ h1{
   line-height:1.05;
 }
 .fifth p{max-width:55ch;margin:14px 0 0;color:#d3d0c9}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes rise{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:none}
+}
 
 footer{margin-top:64px;color:var(--muted);font-size:.82rem}
 footer .rule{margin-bottom:18px}
@@ -223,6 +237,7 @@ footer p{margin:6px 0}
 }
 </style>
 </head>
+
 <body>
 <main class="sheet">
   <header>
@@ -236,7 +251,10 @@ footer p{margin:6px 0}
 
   <div class="progress">
     <div class="pips" aria-hidden="true">
-      <span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
     </div>
     <p id="count" role="status">Nothing turned yet. Pick a card.</p>
   </div>
@@ -312,20 +330,41 @@ CARDS.forEach((card, index) => {
   button.className = `card c${card.no}`;
   button.type = "button";
   button.setAttribute("aria-pressed", "false");
-  button.setAttribute("aria-label", `Card ${card.no}, ${card.tribe.toLowerCase()}. Turn to reveal.`);
+  button.setAttribute(
+    "aria-label",
+    `Card ${card.no}, ${card.tribe.toLowerCase()}. Turn to reveal.`
+  );
+
   const pieceClass = card.crop ? "piece piece--crop" : "piece";
+
   button.innerHTML = `
     <span class="inner">
       <span class="face front" aria-hidden="false">
         <img src="${card.front}" alt="${card.frontAlt}">
       </span>
+
       <span class="face back" aria-hidden="true">
-        <span class="back-top"><span class="wordmark">ACCESSORIZE</span><span class="number">NO.${card.no}</span></span>
-        <span class="${pieceClass}"><img src="${card.piece}" alt="${card.alt}"></span>
+        <span class="back-top">
+          <span class="wordmark">ACCESSORIZE</span>
+          <span class="number">NO.${card.no}</span>
+        </span>
+
+        <span class="${pieceClass}">
+          <img src="${card.piece}" alt="${card.alt}">
+        </span>
+
         <span class="piece-name">${card.name}</span>
         <span class="provenance">${card.provenance}</span>
-        <span class="invite"><strong>You are invited to an upcycling workshop</strong>Bring one piece you stopped wearing.</span>
-        <span class="back-foot"><span class="tribe">FOR THE ONE WHO WAS — ${card.tribe}</span><span class="number">NO.${card.no}</span></span>
+
+        <span class="invite">
+          <strong>You are invited to an upcycling workshop</strong>
+          Bring one piece you stopped wearing.
+        </span>
+
+        <span class="back-foot">
+          <span class="tribe">FOR THE ONE WHO WAS — ${card.tribe}</span>
+          <span class="number">NO.${card.no}</span>
+        </span>
       </span>
     </span>`;
 
@@ -333,23 +372,35 @@ CARDS.forEach((card, index) => {
     const isOpen = button.getAttribute("aria-pressed") === "true";
     const front = button.querySelector(".front");
     const back = button.querySelector(".back");
+
     button.setAttribute("aria-pressed", String(!isOpen));
-    button.setAttribute("aria-label", !isOpen
-      ? `Card ${card.no}, ${card.tribe.toLowerCase()}, revealed. Turn back to the front.`
-      : `Card ${card.no}, ${card.tribe.toLowerCase()}. Turn to reveal.`);
+
+    button.setAttribute(
+      "aria-label",
+      !isOpen
+        ? `Card ${card.no}, ${card.tribe.toLowerCase()}, revealed. Turn back to the front.`
+        : `Card ${card.no}, ${card.tribe.toLowerCase()}. Turn to reveal.`
+    );
+
     front.setAttribute("aria-hidden", String(!isOpen));
     back.setAttribute("aria-hidden", String(isOpen));
+
     if (!isOpen) {
       discovered.add(index);
       updateProgress();
     }
   });
+
   grid.appendChild(button);
 });
 
 function updateProgress(){
-  pips.forEach((pip,index) => pip.classList.toggle("on",index < discovered.size));
+  pips.forEach((pip,index) => {
+    pip.classList.toggle("on", index < discovered.size);
+  });
+
   const total = discovered.size;
+
   if (total === 4){
     count.textContent = "All four turned. There is a fifth.";
     fifth.classList.add("show");
@@ -361,3 +412,6 @@ function updateProgress(){
 </script>
 </body>
 </html>
+```
+
+Commit the change, wait for GitHub Pages to republish, and then hard-refresh the live page.
