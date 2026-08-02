@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Re-Accessorize — a speculative student campaign (not affiliated with Accessorize)</title>
+<meta name="description" content="A hypothetical rebrand campaign created as postgraduate coursework (MDes). Not affiliated with, commissioned by or endorsed by Accessorize or Monsoon Accessorize Ltd. All photographs are AI-generated.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F7F3E9; --dot:#ECE8DC; --ink:#141312;
+  --magenta:#D6186C; --acid:#F5C400; --cyan:#009EB0;
+  --muted:#5A5854;
+  --display:"Poppins",system-ui,sans-serif;
+  --body:"Inclusive Sans","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--cream); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.55;
+  background-image:radial-gradient(var(--dot) 3px, transparent 3px);
+  background-size:18px 18px; background-position:0 0;
+}
+.sheet{max-width:1180px;margin:0 auto;padding:0 24px 96px;background:linear-gradient(var(--cream),var(--cream));}
+.rule{height:6px;background:var(--ink);border:0;margin:0}
+.rule--tipped{background:linear-gradient(90deg,var(--acid) 0 88px,var(--ink) 88px)}
+
+header{padding:56px 0 8px}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:.72rem;letter-spacing:.28em;color:var(--magenta);margin:0 0 14px}
+h1{
+  font-family:var(--display);font-weight:700;line-height:.92;margin:0;
+  font-size:clamp(2.6rem,9vw,5.4rem);letter-spacing:-.02em;
+  text-shadow:6px 6px 0 var(--magenta);
+}
+.standfirst{max-width:46ch;margin:26px 0 0;font-size:1.12rem}
+.proposition{
+  font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,3vw,1.5rem);
+  color:var(--magenta);margin:18px 0 0
+}
+
+.progress{display:flex;align-items:center;gap:14px;margin:40px 0 22px;flex-wrap:wrap}
+.progress p{margin:0;font-size:.92rem;color:var(--muted)}
+.pips{display:flex;gap:7px}
+.pip{width:13px;height:13px;border-radius:50%;background:transparent;border:2px solid var(--ink)}
+.pip.on{background:var(--ink)}
+
+.grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));margin:0}
+
+.card{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;
+  perspective:1400px;display:block;width:100%;text-align:left}
+.card:focus-visible{outline:4px solid var(--cyan);outline-offset:6px}
+.inner{position:relative;width:100%;aspect-ratio:4/5;
+  transition:transform .62s cubic-bezier(.2,.75,.25,1);transform-style:preserve-3d}
+.card[aria-pressed="true"] .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;
+  border:4px solid var(--ink);background:var(--cream);
+  display:flex;flex-direction:column;padding:20px}
+.back{transform:rotateY(180deg)}
+
+.tag{font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:.18em;color:var(--muted)}
+.no{margin-left:auto;font-family:var(--display);font-weight:700;font-size:.68rem}
+.topline{display:flex;align-items:baseline;gap:8px}
+
+.qmark{flex:1;display:grid;place-items:center}
+.qmark span{font-family:var(--display);font-weight:700;font-size:clamp(4.5rem,12vw,7rem);line-height:1;
+  position:relative;color:var(--ink)}
+.qmark span::before{content:"?";position:absolute;left:7px;top:7px;z-index:-1}
+.c01 .qmark span::before{color:var(--magenta)}
+.c02 .qmark span::before{color:var(--acid)}
+.c03 .qmark span::before{color:var(--cyan)}
+.c04 .qmark span::before{color:var(--magenta)}
+
+.hint{font-size:.78rem;color:var(--muted);text-align:center;padding-bottom:8px;
+  border-bottom:2px solid var(--ink);margin-bottom:12px}
+.headline{font-family:var(--display);font-weight:700;font-size:1.06rem;line-height:1.2}
+.tribe{font-size:.76rem;color:var(--muted);margin-top:auto;padding-top:10px}
+
+.well{flex:1;border:2px dashed var(--muted);display:grid;place-items:center;
+  margin-bottom:12px;overflow:hidden;background:#fff}
+.well img{width:100%;height:100%;object-fit:cover;display:block}
+.well p{margin:0;padding:14px;font-size:.74rem;color:var(--muted);text-align:center}
+.did{font-family:var(--display);font-weight:700;font-size:1.5rem;line-height:1.1}
+.c01 .did{color:var(--magenta)} .c02 .did{color:var(--ink)}
+.c03 .did{color:var(--cyan)} .c04 .did{color:var(--magenta)}
+.prov{font-size:.83rem;color:var(--muted);margin:6px 0 0}
+.invite{font-size:.86rem;font-weight:600;margin-top:auto;padding-top:10px;border-top:2px solid var(--ink)}
+
+.fifth{margin-top:44px;border:4px solid var(--ink);background:var(--ink);color:var(--cream);
+  padding:38px 30px;display:none}
+.fifth.show{display:block;animation:rise .5s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.fifth h2{font-family:var(--display);font-weight:700;margin:0;
+  font-size:clamp(1.6rem,5vw,2.6rem);line-height:1.05;color:var(--acid)}
+.fifth p{max-width:52ch;margin:14px 0 0;color:#C9C7C2}
+
+.notice{border:3px solid var(--ink);background:#fff;padding:18px 20px;margin:26px 0 0}
+.notice p{margin:0;font-size:.92rem}
+.notice p+p{margin-top:8px;color:var(--muted);font-size:.86rem}
+.notice strong{font-family:var(--display);font-weight:700}
+.aigen{font-size:.7rem;letter-spacing:.1em;color:var(--muted);
+  font-family:var(--display);font-weight:700;margin:0 0 8px}
+footer{margin-top:70px;font-size:.82rem;color:var(--muted)}
+footer p{margin:6px 0}
+
+@media (prefers-reduced-motion:reduce){
+  .inner{transition:none}
+  .fifth.show{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header>
+  <p class="eyebrow">RE-ACCESSORIZE</p>
+  <h1>You already<br>own the nineties.</h1>
+  <p class="proposition">Four style tribes, one campaign.</p>
+  <p class="standfirst">Every card hides something. Turn one to see what an unworn accessory
+  became, and what was actually done to it.</p>
+</header>
+
+<div class="notice">
+  <p><strong>This is a hypothetical campaign.</strong> Re-Accessorize is a speculative rebrand
+  created as postgraduate coursework for MDes 004, Boosting the Brand. It is not affiliated with,
+  commissioned by, or endorsed by Accessorize or Monsoon Accessorize Ltd, and nothing here is a
+  real product, service or offer. No workshop exists and no piece can be brought anywhere.</p>
+  <p>Every photograph on this page is AI-generated. The pieces shown do not exist and have not
+  been repaired; the repair descriptions are illustrative of what the campaign would document,
+  not records of work done.</p>
+</div>
+
+<hr class="rule rule--tipped">
+
+<div class="progress">
+  <div class="pips" aria-hidden="true">
+    <span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span>
+  </div>
+  <p id="count" role="status">Nothing turned yet. Pick a card.</p>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<section class="fifth" id="fifth" aria-live="polite">
+  <h2>Not one of four.<br>One of one.</h2>
+  <p>The tribes are a way in, not a category to be filed under. The piece you bring
+  has a history nobody else's has. Bring one piece you stopped wearing — selected stores,
+  limited spaces.</p>
+</section>
+
+<footer>
+  <hr class="rule" style="margin-bottom:18px">
+  <p><strong>Re-Accessorize</strong> — speculative student work. MDes 004, Boosting the Brand, Birmingham City University. Sarah-Jane Crowson.</p>
+  <p>Not affiliated with, commissioned by, or endorsed by Accessorize or Monsoon Accessorize Ltd.
+  Accessorize is their trademark, referenced here for academic critique and commentary only.
+  This page describes a campaign that does not exist and makes no claims about the brand's actual
+  practices, products or sustainability performance.</p>
+  <p>All imagery on this page is AI-generated (Adobe Firefly). No real accessories were photographed,
+  repaired or collected.</p>
+</footer>
+
+</div>
+
+<script>
+const CARDS = [
+  { no:"01", tribe:"ART SCHOOL",   headline:"you already own<br>the nineties",
+    did:"restrung",   piece:"images/piece-01.jpg",
+    alt:"A black velvet ribbon choker with a small teardrop moonstone drop in a silver setting.",
+    prov:"Velvet ribbon choker with moonstone drop. Ribbon perished and replaced; the original drop and clasp rewired onto it." },
+  { no:"02", tribe:"IN THE BAND",  headline:"the badge<br>still fits",
+    did:"re-made",    piece:"images/piece-02.jpg",
+    alt:"Two silver safety pins, each threaded with a small red enamel heart bead.",
+    prov:"Safety-pin brooches with red enamel hearts. Hearts salvaged from a broken bracelet; pins replaced, enamel left chipped as found." },
+  { no:"03", tribe:"GLUED TO MTV", headline:"chrome, but<br>the good kind",
+    did:"re-set",     piece:"images/piece-03.jpg",
+    alt:"Three iridescent butterfly hair clips with clear crystals along the wings, on gold-tone clips.",
+    prov:"Iridescent butterfly hair clips. Missing crystals re-set from spares; two clip mechanisms replaced, wings untouched." },
+  { no:"04", tribe:"UP TILL 6AM",  headline:"quieter now,<br>not gone",
+    did:"re-polished", piece:"images/piece-04.jpg",
+    alt:"A yellow enamel smiley-face pendant hanging from a fine silver collar.",
+    prov:"Smiley pendant on a silver collar. Collar re-polished by hand; enamel deliberately left as found, scratches and all." }
+];
+
+const grid = document.getElementById('grid');
+const pips = document.querySelectorAll('.pip');
+const count = document.getElementById('count');
+const fifth = document.getElementById('fifth');
+const turned = new Set();
+
+CARDS.forEach((c, i) => {
+  const b = document.createElement('button');
+  b.className = 'card c' + c.no;
+  b.type = 'button';
+  b.setAttribute('aria-pressed', 'false');
+  b.setAttribute('aria-label', 'Card ' + c.no + ', ' + c.tribe.toLowerCase() + '. Turn to reveal.');
+  b.innerHTML = `
+    <div class="inner">
+      <div class="face front">
+        <div class="topline"><span class="tag">FOR THE ONE WHO WAS</span><span class="no">NO.${c.no}</span></div>
+        <div class="qmark"><span>?</span></div>
+        <p class="hint">Click to reveal</p>
+        <p class="headline">${c.headline}</p>
+        <p class="tribe">${c.tribe}</p>
+      </div>
+      <div class="face back">
+        <div class="topline"><span class="tag">WHAT IT BECAME</span><span class="no">NO.${c.no}</span></div>
+        <p class="aigen">AI-GENERATED IMAGE</p>
+        <div class="well">
+          <img src="${c.piece}" alt="${c.alt}"
+               onerror="this.replaceWith(Object.assign(document.createElement('p'),{textContent:'Image unavailable — images/piece-'+'${c.no}'+'.jpg'}))">
+        </div>
+        <p class="did">${c.did}</p>
+        <p class="prov">${c.prov}</p>
+        <p class="invite">Bring one piece you stopped wearing.</p>
+      </div>
+    </div>`;
+  b.addEventListener('click', () => {
+    const open = b.getAttribute('aria-pressed') === 'true';
+    b.setAttribute('aria-pressed', String(!open));
+    if (!open) { turned.add(i); update(); }
+  });
+  grid.appendChild(b);
+});
+
+function update() {
+  pips.forEach((p, i) => p.classList.toggle('on', i < turned.size));
+  const n = turned.size;
+  count.textContent = n === 4
+    ? 'All four turned. There is a fifth.'
+    : n + ' of 4 turned. ' + (4 - n) + ' still hiding.';
+  if (n === 4) fifth.classList.add('show');
+}
+</script>
+</body>
+</html>
